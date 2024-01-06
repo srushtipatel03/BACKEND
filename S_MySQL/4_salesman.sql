@@ -21,3 +21,7 @@ insert into SALESMAN_MASTER(SalesmanNo,Name,Address1,Address2,City,Pincode,State
 
 
 -- select * from SALESMAN_MASTER;
+
+
+--f. select * from SALESMAN_MASTER where SalAmt = 3000;
+--d. update SALESMAN_MASTER set City = 'pune';

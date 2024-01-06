@@ -22,3 +22,7 @@ insert into product_master(ProductNo, Description, ProfitPercent, UnitMeasure, Q
 
 
 --  select * from product_master;
+
+
+--d. select description from product_master;
+--c. update product_master set CostPrice = 950 where Description = 'Trousers';
