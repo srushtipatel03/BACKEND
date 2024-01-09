@@ -1,14 +1,14 @@
 create table SALESMAN_MASTER(
-    SalesmanNo varchar(6),
-    Name varchar(20),
-    Address1 varchar(30),
+    SalesmanNo varchar(6) primary key,
+    Name varchar(20) not null,
+    Address1 varchar(30) not null,
     Address2 varchar(30),
     City varchar(20),
     Pincode int,
     State varchar(20),
-    SalAmt int,
-    TgtToGet int,
-    YtdSales int,
+    SalAmt int not null,
+    TgtToGet int not null,
+    YtdSales int not null,
     Remarks varchar(60) 
 );
 

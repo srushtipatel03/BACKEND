@@ -1,6 +1,6 @@
 create table client(
-    clientNo varchar(6),
-    CName varchar(20),
+    clientNo varchar(6) primary key,
+    CName varchar(20) not null ,
     CAddress1 varchar(30),
     CAddress2 varchar(30),
     City varchar(15),

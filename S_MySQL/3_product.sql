@@ -1,12 +1,12 @@
 create table product_master(
-    ProductNo varchar(6),
-    Description varchar(15),
-    ProfitPercent int,
-    UnitMeasure varchar(10),
-    QtyOnHand int,
-    ReorderLvl int,
-    SellPrice int,
-    CostPrice int
+    ProductNo varchar(6) primary key,
+    Description varchar(15) not null,
+    ProfitPercent int not null,
+    UnitMeasure varchar(10) not null,
+    QtyOnHand int not null,
+    ReorderLvl int not null,
+    SellPrice int not null,
+    CostPrice int not null
 );
 
 insert into product_master(ProductNo, Description, ProfitPercent, UnitMeasure, QtyOnHand, ReorderLvl,SellPrice, CostPrice) values
@@ -26,3 +26,5 @@ insert into product_master(ProductNo, Description, ProfitPercent, UnitMeasure, Q
 
 --d. select description from product_master;
 --c. update product_master set CostPrice = 950 where Description = 'Trousers';
+
+
