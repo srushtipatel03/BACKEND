@@ -19,10 +19,10 @@ insert into client(ClientNo, CName, CAddress1, CAddress2, City, Pincoad, CState,
 
 -- select * from client;
 
---a. select Cname from client;
---b. select * from client;
---c. select Cname, City, CState from client;
---e. select * from client where City = 'Mumbai';
---a. update client set City = 'Bangalore' where clientNo = 'C00005';
---b. update client set CBaldue = 1000 where clientNo ='C00005';
+-- a. select Cname from client;
+-- b. select * from client;
+-- c. select Cname, City, CState from client;
+-- e. select * from client where City = 'Mumbai';
+-- a. update client set City = 'Bangalore' where clientNo = 'C00005';
+-- b. update client set CBaldue = 1000 where clientNo ='C00005';
 
