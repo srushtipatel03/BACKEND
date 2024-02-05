@@ -1,6 +1,6 @@
 table {
     border: 2px solid rgb(9, 9, 9);
-    background-color: rgb(245, 159, 37);
+    background-color: rgb(87, 230, 220);
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px;
@@ -16,7 +16,7 @@ input[type="button"]
     font-size: 24px;
     font-weight: bold;
     border-radius: 80px;
-    border: 1px solid rgb(5, 25, 242);
+    border: 1px solid rgb(14, 24, 137);
 }
 
 input[type="text"] {
@@ -30,7 +30,7 @@ input[type="text"] {
     border: 2px solid rgb(9, 3, 3);
 }
 p{
-    color: green;
+    color: rgb(12, 180, 222);
 }
 
 body {
@@ -40,6 +40,6 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(to right, #f13e62, #32de3a);
+    background: linear-gradient(to right, #ba7ff8, #c6d3c7);
     color: #fff;
   }

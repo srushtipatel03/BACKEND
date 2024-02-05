@@ -1,5 +1,5 @@
 body{
-  background : linear-gradient(to right,rgb(239, 146, 235),rgb(235, 72, 235));
+  background : linear-gradient(to right,rgb(252, 234, 251),rgb(233, 49, 233));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,12 +15,16 @@ body{
 } 
 h1{
   color :rgb(26, 24, 26);
+  font-size: 400%;
 }
 p{
-  color :rgb(136, 123, 5);
+  color :rgb(124, 15, 213);
+  font-size: 250%;
 }
-h{
-  color: rgb(6, 65, 74);
+h3{
+  color: rgb(3, 77, 25);
+  font-style: italic;
+  font-size: 3cap;
 }
 .heading { 
   border: 2px solid green; 
