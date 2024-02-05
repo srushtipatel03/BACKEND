@@ -1,0 +1,48 @@
+.container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 100px;
+}
+
+h1 {
+  text-align: center;
+  background-color:burlywood;
+}
+
+.input-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  background-color: azure;
+  color: blueviolet;
+}
+
+.input-section input {
+  width: 50%;
+  padding: 20px;
+  background-color: rgb(155, 222, 200);
+}
+
+.input-section button {
+  padding: 20px 15px;
+  background-color: rgb(125, 232, 232);
+}
+
+.expense-list {
+  margin-bottom: 40px;
+  font-size:x-large;
+  color: rgb(7, 7, 110);
+  background-color: beige;
+}
+
+.expense-list li {
+  list-style-type: none;
+  margin-bottom: 5px;
+  border-color: blue;
+}
+
+.total-section {
+  text-align: right;
+  font-size:x-large;
+  color: rgb(138, 2, 230);
+}
