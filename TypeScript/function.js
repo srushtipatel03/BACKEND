@@ -18,10 +18,8 @@
 // }
 // console.log(person);
 /*---ENUM---*/
-var gender;
-(function (gender) {
-    gender[gender["male"] = 0] = "male";
-    gender[gender["female"] = 1] = "female";
-})(gender || (gender = {}));
-var x = gender.male;
-console.log(x);
+// enum gender {            // enum:- specific things
+//     'male', 'female'
+// }
+// let x = gender.male;
+// console.log(x);         //output:- return index number
