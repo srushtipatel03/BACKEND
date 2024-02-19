@@ -1,50 +1,26 @@
-// https modules
+//hello.json - hello.txt
 
-// 127.0.0.1:3333
+const http = require("http");
+const fs = require("fs");
+const data = fs.readFileSync('./hello.txt', 'utf-8');
 
-const http = require('http');
+// const server = http.createServer((req, res) => {
+//     res.setHeader('dummy','dummy value');
+//     res.setHeader('content-type','text/html');
+//     res.setHeader('content-type','application/json');
+//     res.end('Welcome to local server ...');
+// });
 
-// SERVER-1
-const server = http.createServer((req, res) => {
-    res.end('Welcome to local server 1...');
-});     // server create     
+//SECOND METHOD
 
-server.listen(3333, () => {
-    console.log('Server running on port 3333');
+const server = http.createServer();
+server.on("request", (req, res) => {
+  res.setHeader('content-type','text/html');
+  res.write('<h1 style="color:yellow" >Hello</h1>');
+  // res.write('{"hello": 123}');
+  res.end();
 });
 
-// SERVER-2
-const server2 = http.createServer((req, res) => {
-    res.end('Welcome to local server 2...');
-});    
-
-server2.listen(4444, () => {
-    console.log('Server running on port 4444');
-});
-
-// SERVER-3
-const server3 = http.createServer((req, res) => {
-    res.end('Welcome to local server 3...');
-});        
-
-server3.listen(3434, () => {
-    console.log('Server running on port 3434');
-});
-
-//SERVER-4
-const server4 = http.createServer((req, res) => {
-    res.end('Welcome to local server 4...');
-});
-
-server4.listen(4343, () => {
-    console.log('Server running on port 4343');
-});
-
-//SERVER-5
-const server5 = http.createServer((req, res) => {
-    res.end('Welcome to local server 5...');
-});        
-
-server5.listen(2342, () => {
-    console.log('Server running on port 2342');
+server.listen(1221, () => {
+  console.log("Server running on port 1221");
 });
