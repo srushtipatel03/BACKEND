@@ -1,5 +1,6 @@
 [
     {
+      "id":1,
       "author": "Chinua Achebe",
       "country": "Nigeria",
       "imageLink": "images/things-fall-apart.jpg",
@@ -10,6 +11,7 @@
       "year": 1958
     },
     {
+      "id":2,
       "author": "Hans Christian Andersen",
       "country": "Denmark",
       "imageLink": "images/fairy-tales.jpg",
@@ -20,6 +22,7 @@
       "year": 1836
     },
     {
+      "id":3,
       "author": "Dante Alighieri",
       "country": "Italy",
       "imageLink": "images/the-divine-comedy.jpg",
@@ -30,6 +33,7 @@
       "year": 1315
     },
     {
+      "id":4,
       "author": "Unknown",
       "country": "Sumer and Akkadian Empire",
       "imageLink": "images/the-epic-of-gilgamesh.jpg",
@@ -40,6 +44,7 @@
       "year": -1700
     },
     {
+      "id":5,
       "author": "Unknown",
       "country": "Achaemenid Empire",
       "imageLink": "images/the-book-of-job.jpg",
