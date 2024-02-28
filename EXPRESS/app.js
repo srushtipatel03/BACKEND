@@ -106,14 +106,22 @@ app.get('/products', (req,res)=>{
     res.status(200).json(Products);
 });
 
-app.get('/products/single-product', (req,res)=>{            //query params
-    const id = +req.query.id;
-    console.log(id);
-    let product = Products.find((item)=> item.id ===id)
+// app.get('/products/single-product', (req,res)=>{    //Query Params      (Use One of the Two Either Params OR Query Params)  
+//     const id = +req.query.id;                                              
+//     console.log(id);                                                      
+//     let product = Products.find((item)=> item.id ===id)                  
+//     res.status(200).json(product);                                       
+// });                                                                     
+
+app.get('/products/:id', (req,res)=>{               //Params     
+    const id = +req.params.id;
+    console.log(id);     
+    let product = Products.find((item)=> item.id ===id)  
     res.status(200).json(product);
 });
-
 
 app.listen(port, () => {
     console.log('Server running at http://localhost:3000');
 });
+
+
