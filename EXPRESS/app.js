@@ -106,7 +106,7 @@ app.get('/products', (req,res)=>{
     res.status(200).json(Products);
 });
 
-app.get('/products/single-product', (req,res)=>{            
+app.get('/products/single-product', (req,res)=>{            //query params
     const id = +req.query.id;
     console.log(id);
     let product = Products.find((item)=> item.id ===id)
