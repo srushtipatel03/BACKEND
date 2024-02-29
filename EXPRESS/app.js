@@ -102,26 +102,65 @@ app.post('/products', (req,res)=>{
     res.status(201).json({message: 'Product is Added...'})
 }); 
 
+//Every product get
 app.get('/products', (req,res)=>{
     res.status(200).json(Products);
 });
 
-// app.get('/products/single-product', (req,res)=>{    //Query Params      (Use One of the Two Either Params OR Query Params)  
-//     const id = +req.query.id;                                              
-//     console.log(id);                                                      
-//     let product = Products.find((item)=> item.id ===id)                  
-//     res.status(200).json(product);                                       
-// });                                                                     
+//Single Specific product get
+app.get('/products/single-product', (req,res)=>{    //Query Params      (Use One of the Two Either Params OR Query Params)  
+    const id = +req.query.id;                                              
+    console.log(id);                                                      
+    let product = Products.find((item)=> item.id === id)                  
+    res.status(200).json(product);                                       
+});                                                                     
 
-app.get('/products/:id', (req,res)=>{               //Params     
-    const id = +req.params.id;
-    console.log(id);     
-    let product = Products.find((item)=> item.id ===id)  
-    res.status(200).json(product);
-});
+// app.get('/products/:id', (req,res)=>{                  //Params     
+//     const id = +req.params.id;
+//     console.log(id);     
+//     let product = Products.find((item)=> item.id === id)  
+//     res.status(200).json(product);
+// });
+
+// app.listen(port, () => {
+//     console.log('Server running at http://localhost:3000');
+// });
+
+
+
+// --------------DATE :- 29-02-2024----------------
+
+
+//Replace single product
+app.put('/products/replace-product', (req,res)=>{    
+    const id = +req.query.id;                                                   
+    let productIndex = Products.findIndex((item)=> item.id === id)  
+    let product = Products[productIndex];      
+    Products.splice(productIndex, 1, {...req.body});  
+    //console.log(product);       
+    res.status(200).json({message: 'Product Replace SuccessFully...'});                                       
+});                
+
+//Update single product
+app.patch('/products/update-product', (req,res)=>{    
+    const id = +req.query.id;                                                   
+    let productIndex = Products.findIndex((item)=> item.id === id)  
+    let product = Products[productIndex];      
+    Products.splice(productIndex, 1, {...product,...req.body});  
+    //console.log(product);       
+    res.status(200).json({message: 'Product update SuccessFully...'});                                       
+});     
+
+//Delete single product
+app.delete('/products/delete-product', (req,res)=>{    
+    const id = +req.query.id;                                                   
+    let productIndex = Products.findIndex((item)=> item.id === id)  
+    let product = Products[productIndex];      
+    Products.splice(productIndex, 1);  
+    //console.log(product);   
+    res.status(200).json({message: 'Product delete SuccessFully...'});                                       
+});     
 
 app.listen(port, () => {
     console.log('Server running at http://localhost:3000');
 });
-
-
