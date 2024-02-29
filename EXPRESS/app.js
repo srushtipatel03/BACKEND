@@ -122,11 +122,6 @@ app.get('/products/single-product', (req,res)=>{    //Query Params      (Use One
 //     res.status(200).json(product);
 // });
 
-// app.listen(port, () => {
-//     console.log('Server running at http://localhost:3000');
-// });
-
-
 
 // --------------DATE :- 29-02-2024----------------
 
