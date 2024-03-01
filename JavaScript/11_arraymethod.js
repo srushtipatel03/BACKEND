@@ -86,7 +86,7 @@ let data = [11,22,33,44,55,66,77,88,99];
 // })
 // console.log(a);
 
-// 18.> Array reduse ():-
+// 18.> Array reduce ():-
 // let abc;
 // abc = data.reduceRight((a,val, index)=>{
 // return a + val;
