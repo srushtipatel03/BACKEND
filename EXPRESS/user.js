@@ -12,5 +12,3 @@ app.use('/users', userRoutes);
 app.listen(port, () => {
     console.log('Server running at http://localhost:1212');
 });
-
- 
