@@ -6,7 +6,7 @@ const { addUser,
     getUser,
     replaceUser,
     updateUser
-} = require('../controller/user.controller');
+} = require('../controller/userTask.controller');
 
 //Create User
 userRoutes.post('/', addUser);

@@ -6,7 +6,7 @@ const morgan = require('morgan');
 app.use(express.json());
 app.use(morgan('dev'));
 
-const userRoutes = require('./Routes/user.routes');
+const userRoutes = require('./Routes/userTask.routes');
 app.use('/users', userRoutes);
 
 app.listen(port, () => {
