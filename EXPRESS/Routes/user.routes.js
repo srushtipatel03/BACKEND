@@ -1,16 +1,21 @@
 const express = require('express');
 const userRoutes = express.Router();
-const {addUser,
+const { verifyToken} = require('../helpers/verifyToken');
+const {
+    registerUser,
+    loginUser,
     getAllUsers,
     getUser,
     updateUser,
     deleteUser
 } = require('../controller/user.controller');
 
-userRoutes.post('/add-user', addUser);
-userRoutes.get('/get-all-users', getAllUsers);
-userRoutes.get('/get-user', getUser);
-userRoutes.put('/update-user', updateUser);
-userRoutes.delete('/delete-user', deleteUser);
+userRoutes.post('/register-user', registerUser);
+userRoutes.post('/login-user', loginUser);
+userRoutes.get('/get-all-users',verifyToken, getAllUsers);
+userRoutes.get('/get-user',verifyToken, getUser);
+userRoutes.put('/update-user',verifyToken, updateUser);
+userRoutes.delete('/delete-user',verifyToken, deleteUser);
+userRoutes.put('/change-password',verifyToken, changePassword);
 
 module.exports = userRoutes;
