@@ -1,13 +1,15 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const port = 4321;
 const morgan = require('morgan');
-
-
 const mongoose = require('mongoose');
+
+
 // Database connection
 async function main() {
-    await mongoose.connect('mongodb://127.0.0.1:27017/sNode');
+    await mongoose.connect(process.env.Mongo_DB_URL);
+    // await mongoose.connect('mongodb://127.0.0.1:27017/sNode');
 }
 main()
 .then(()=>console.log('DB is Connected....'))

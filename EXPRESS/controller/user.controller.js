@@ -101,28 +101,24 @@ exports.deleteUser = async (req, res) => {
     }
 };
 
-exports.changePassword( async (req, res) => {
-    try {
-        const userId = req.user._id;
-        const { currentPassword, newPassword } = req.body;
-
-        // Retrieve user from the database
-        const user = await User.findById(userId);
-
-        // Check if the current password matches
-        if (!user || !user.isValidPassword(currentPassword)) {
-            return res.status(401).json({ message: 'Invalid current password' });
-        }
-
-        // Update the password
-        user.password = newPassword;
-        await user.save();
-
-        res.status(200).json({ message: 'Password updated successfully' });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Internal Server Error' });
-    }
-});
+// exports.changePassword = async (req, res) => {
+//     try {
+//         let userId = req.user._id;
+//         let { currentPassword, newPassword } = req.body;
+//         // Retrieve user from the database
+//         let user = await User.findById(userId);
+//         // Check if the current password matches
+//         if (!user || !user.isValidPassword(currentPassword)) {
+//             return res.status(401).json({ message: 'Invalid current password' });
+//         }
+//         // Update the password
+//         user.password = newPassword;
+//         await user.save();
+//         res.status(200).json({ message: 'Password updated successfully' });
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).json({ message: 'Internal Server Error' });
+//     }
+// };
 
 
