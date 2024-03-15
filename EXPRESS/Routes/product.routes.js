@@ -1,29 +1,19 @@
 const express = require('express');
 const productRoutes = express.Router();
-const { addProduct,
-    deleteProduct,
+const {verifyToken} = require('../helpers/verifyToken');
+const {
+    registerProduct,
+    loginProduct,
     getAllProducts,
     getProduct,
-    replaceProduct,
-    updateProduct
+    updateProduct,
+    deleteProduct
 } = require('../controller/product.controller');
 
-//Create Product
-productRoutes.post('/', addProduct); 
-
-//Get All Products
-productRoutes.get('/', getAllProducts);
-
-//Get Single Product
-productRoutes.get('/single-product', getProduct);                                                                     
-
-//Replace Single Product
-productRoutes.put('/replace-product', replaceProduct);                
-
-//Update Single Product
-productRoutes.patch('/update-product', updateProduct);     
-
-//Delete Single Product
-productRoutes.delete('/delete-product', deleteProduct);
+productRoutes.post('/register-product', registerProduct);
+productRoutes.get('/get-all-products',verifyToken, getAllProducts);
+productRoutes.get('/get-product',verifyToken, getProduct);
+productRoutes.put('/update-product',verifyToken, updateProduct);
+productRoutes.delete('/delete-product',verifyToken, deleteProduct);
 
 module.exports = productRoutes;

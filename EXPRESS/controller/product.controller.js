@@ -1,49 +1,94 @@
-const Products = require('../public/products.json');
+const Product = require('../model/product.model');
+const jwt = require("jsonwebtoken");
 
-exports.addProduct = (req,res)=>{
-    // console.log(req.body);
-    const product = req.body;
-    Products.push(product);
-    //products.push({...req.body});
-    res.status(201).json({message: 'Product is Added...'})
+exports.registerProduct = async (req, res) => {
+    try {
+        const { title, description, price, categories} = req.body;
+        let product = await Product.findOne({title: title, isDelete: false});
+        console.log(product);
+        if(product) {
+            return res.status(400).json({message: 'Product is already registered...'});
+        }
+        product = await Product.create({
+            title, description,
+            price, categories
+        })
+        product.save();
+        res.status(201).json({product: product, message: 'New Product Added Successfully...'});
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message: 'Internal Server Error'});
+    }
 };
 
-exports.getAllProducts = (req,res)=>{
-    res.status(200).json(Products);
+exports.loginProduct = async (req, res) => {
+    try {
+        let product = await Product.findOne({title: req.body.title, isDelete: false});
+        // console.log(product);
+        if(!product) {
+          return res.status(404).json({message: 'Product is not found...'});
+        }
+        let token = jwt.sign({productId: product._id}, 'skillQode');
+        res.status(200).json({token, message: 'Login Successful...'});
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message: 'Internal Server Error'});
+    }
 };
 
-exports.getProduct = (req,res)=>{    //Query Params     
-    const id = +req.query.id;                                              
-    // console.log(id);                                                      
-    let product = Products.find((item)=> item.id === id)                  
-    res.status(200).json(product);                                       
+exports.getAllProducts = async (req, res) => {
+    try {
+        let products = await Product.find({ isDelete: false });
+        console.log(products);
+        res.status(200).json(products);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message: 'Internal Server Error'});
+    }
 };
 
-exports.replaceProduct = (req,res)=>{    
-    const id = +req.query.id;                                                   
-    let productIndex = Products.findIndex((item)=> item.id === id)  
-    let product = Products[productIndex];      
-    Products.splice(productIndex, 1, {...req.body});  
-    //console.log(product);       
-    res.status(200).json({message: 'Product Replace SuccessFully...'});                                       
+exports.getProduct = async (req, res) => {
+    try {
+        let productId = req.query.productId;
+        console.log(productId);
+        let product = await Product.findOne({_id: productId, isDelete: false});
+        console.log({msg:product});
+        if(!product){
+            return res.status(404).json({message: 'Product Not Found'});
+        };
+        res.status(200).json(product);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message: 'Internal Server Error'});
+    }
 };
 
-exports.updateProduct = (req,res)=>{    
-    const id = +req.query.id;                                                   
-    let productIndex = Products.findIndex((item)=> item.id === id)  
-    let product = Products[productIndex];      
-    Products.splice(productIndex, 1, {...product,...req.body});  
-    //console.log(product);       
-    res.status(200).json({message: 'Product update SuccessFully...'});                                       
+exports.updateProduct = async (req, res) => {
+    try {
+        let productId = req.query.productId;
+        let product = await Product.findById(productId);
+        if(!product){
+            return res.status(404).json({message: 'Product Not Found'});
+        }
+        product = await Product.findOneAndUpdate({_id:product._id}, {$set : { ...req.body}}, { new : true});
+        res.status(200).json({message: 'Product Updated Successfully...'});
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message: 'Internal Server Error'});
+    }
 };
 
-exports.deleteProduct = (req,res)=>{    
-    const id = +req.query.id;                                                   
-    let productIndex = Products.findIndex((item)=> item.id === id)  
-    let product = Products[productIndex];      
-    Products.splice(productIndex, 1);  
-    //console.log(product);   
-    res.status(200).json({message: 'Product delete SuccessFully...'});                                       
+exports.deleteProduct = async (req, res) => {
+    try {
+        let productId = req.query.productId;
+        let product = await Product.findById(productId);
+        if(!product){
+            return res.status(404).json({message: 'Product Not Found'});
+        }
+        product = await Product.findOneAndUpdate({_id: product._id}, {isDelete: true}, {new: true});
+        res.status(200).json({product, message: 'Product Deleted Successfully...'});
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message: 'Internal Server Error'});
+    }
 };
-
-
