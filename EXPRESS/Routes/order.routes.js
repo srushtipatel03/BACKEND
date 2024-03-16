@@ -1,6 +1,6 @@
 const express = require('express');
 const orderRoutes = express.Router();
-const {varifyToken, verifyToken} = require('../helpers/verifyToken');
+const {verifyToken} = require('../helpers/verifyToken');
 const {
     newOrder,
     getAllOrders,
