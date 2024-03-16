@@ -4,6 +4,7 @@ const app = express();
 const port = process.env.PORT;
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const path = require('path');
 
 // Database connection
 async function main() {
@@ -16,8 +17,11 @@ main()
 .catch(err => console.log(err));
 
 // Middleware
+let imagePath = path.join(__dirname, 'public', 'images');
+// console.log(imagePath);
 app.use(express.json());
 app.use(morgan('dev'));
+app.use('/public/images', express.static(imagePath));
 
 const userRoutes = require('./Routes/user.routes');
 const { config } = require('dotenv');

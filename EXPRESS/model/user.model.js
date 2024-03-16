@@ -19,6 +19,9 @@ const userSchema = mongoose.Schema({
     age: {
         type: Number
     },
+    profileImage: {
+        type: String
+    },
     isDelete:{
         type: Boolean,
         default: false
